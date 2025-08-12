@@ -10,7 +10,7 @@ public class ShortUrlController {
 
     @PostMapping("/shorten")
     public void createShortUrl(@RequestBody String url){
-
+        
     }
     @GetMapping("/{shortUrl}")
     public void getShortUrl(@RequestBody String shortUrl){
