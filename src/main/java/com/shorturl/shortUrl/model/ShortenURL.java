@@ -1,19 +1,22 @@
 package com.shorturl.shortUrl.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class ShortenURL {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "source_url")
+    private String sourceUrl;
+    @Column(name = "code_url")
+    private String codeUrl;
 
-    private String source_url;
+    public ShortenURL(String sourceUrl) {
+        this.sourceUrl = sourceUrl;
+    }
 
-    private String code_url;
+    public ShortenURL() {}
 
     public long getId() {
         return id;
@@ -23,19 +26,19 @@ public class ShortenURL {
         this.id = id;
     }
 
-    public String getSource_url() {
-        return source_url;
+    public String getSourceUrl() {
+        return sourceUrl;
     }
 
-    public void setSource_url(String source_url) {
-        this.source_url = source_url;
+    public void setSourceUrl(String sourceUrl) {
+        this.sourceUrl = sourceUrl;
     }
 
-    public String getCode_url() {
-        return code_url;
+    public String getCodeUrl() {
+        return codeUrl;
     }
 
-    public void setCode_url(String code_url) {
-        this.code_url = code_url;
+    public void setCodeUrl(String codeUrl) {
+        this.codeUrl = codeUrl;
     }
 }
